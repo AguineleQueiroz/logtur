@@ -16,23 +16,7 @@
         @filamentStyles
         <wireui:scripts/>
         <script src="https://cdn.tailwindcss.com"></script>
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <style>
-            *::-webkit-scrollbar {
-                width: 4px!important;
-                height: 4px!important;
-                background-color: #d4d4d8;
-            }
-            *::-webkit-scrollbar-thumb{
-                background-color: #9ca3af;
-                border: 1px solid #9ca3af;
-            }
-
-            *::-webkit-scrollbar-track{
-                background-color: #d4d4d8;
-                border-left: 1px solid #d4d4d8;
-            }
-        </style>
+        @vite(['resources/css/app.css','resources/css/custom.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
 
