@@ -29,7 +29,7 @@ class ClientForm extends Form
         return [
             'user_id' => 'required',
             'name' => 'required|min:3|string|max:255',
-            'identity' => 'required|unique:clients,identity|min:8|max:8|string',
+            'identity' => 'required|unique:clients,identity|min:8|max:10|string',
             'age' => 'required|min:7|max:115|numeric',
             'city' => 'required|min:3|max:45|string',
             'address' => 'required|min:5|max:255|string',
@@ -53,7 +53,7 @@ class ClientForm extends Form
             $this->validate([
                 'user_id' => 'required',
                 'name' => 'required|min:3|string|max:255',
-                'identity' => 'required|min:8|max:8|string',
+                'identity' => 'required|min:8|max:10|string',
                 'age' => 'required|min:7|max:115|numeric',
                 'city' => 'required|min:3|max:45|string',
                 'address' => 'required|min:5|max:255|string',
