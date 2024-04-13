@@ -51,7 +51,7 @@ class ClientList extends Component
             return Notification::make()
                 ->title($title ?? 'Registro atualizado!')
                 ->color($color ?? 'info')
-                ->duration($time ?? 5000)
+                ->duration($time ?? 4000)
                 ->info()
                 ->send();
         }
@@ -59,14 +59,14 @@ class ClientList extends Component
             Notification::make()
                 ->title($title ?? 'Cliente registrado')
                 ->color($color ?? 'success')
-                ->duration($time ?? 5000)
+                ->duration($time ?? 4000)
                 ->success()
                 ->send();
         }else{
             Notification::make()
                 ->title($title ?? 'Ops! Algo deu errado.')
                 ->color($color ?? 'warning')
-                ->duration($time ?? 5000)
+                ->duration($time ?? 4000)
                 ->warning()
                 ->send();
         }

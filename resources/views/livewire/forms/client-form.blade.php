@@ -23,8 +23,8 @@
             <div class="flex gap-4">
                 <div class="w-full">
                     <x-input-label for="identity" :value="__('Identidade')"/>
-                    <x-text-input wire:model="form.identity" id="identity" name="identity" type="text" class="mt-1 block w-full"
-                                  placeholder="{{ __('Identity') }}"/>
+                    <x-text-input x-mask="99.999.999" wire:model.debounce="form.identity" id="identity" name="identity" type="text" class="mt-1 block w-full"
+                                  placeholder="{{ __('00.000.000') }}"/>
                     <x-input-error :messages="$errors->get('form.identity')" class="mt-1" />
                 </div>
                 <div class="w-full">
@@ -44,8 +44,8 @@
                 </div>
                 <div>
                     <x-input-label for="phone" :value="__('Telefone')"/>
-                    <x-text-input wire:model="form.phone" id="phone" name="phone" type="text" class="mt-1 block w-full"
-                                  placeholder="{{ __('Telefone') }}"/>
+                    <x-text-input x-mask="(99)99999-9999" wire:model.debounce="form.phone" id="phone" name="phone" type="text" class="mt-1 block w-full"
+                                  placeholder="{{ __('(00)00000-0000') }}"/>
                     <x-input-error :messages="$errors->get('form.phone')" class="mt-1" />
                 </div>
             </div>

@@ -56,12 +56,14 @@ class TravelForm extends Form
         if(!Storage::exists('app/public/travel')) {
             File::makeDirectory(storage_path('app/public/travel'), 0755, true, true);
         }
-        $imageExt = $this->photo->getClientOriginalExtension();
-        $filename = time().'.'.$imageExt;
-        $urlImage = 'storage/travel/'.$filename;
-        $this->photo->storeAs('travel', $filename, 'public');
+        if(!str_contains($this->photo, 'storage/travel/')) {
+            $imageExt = $this->photo->getClientOriginalExtension();
+            $filename = time().'.'.$imageExt;
+            $urlImage = 'storage/travel/'.$filename;
+            $this->photo->storeAs('travel', $filename, 'public');
 
-        $this->photo = $urlImage;
+            $this->photo = $urlImage;
+        }
     }
 
     /**
@@ -75,7 +77,6 @@ class TravelForm extends Form
             $this->validate();
             /*handle image package*/
             self::handleAndSavePicture();
-            
             $resultAction = Travel::create($this->only(['photo', 'user_id', 'name', 'description', 'departure', 'arrival', 'payment_method1', 'payment_method2']));
             if(!$resultAction) {
                 ClientList::dispatchNotification($resultAction,'Não foi possivel registrar o pacote', color: 'white');
@@ -96,8 +97,11 @@ class TravelForm extends Form
             ]);
             /*handle image package*/
             self::handleAndSavePicture();
-            $resultAction = $this->travel->update($this->only(['photo', 'user_id', 'name', 'description', 'departure', 'arrival', 'payment_method1', 'payment_method2']));
-            $resultAction ? ClientList::dispatchNotification(title: 'Pacote atualizado com sucesso', color: 'white') : ClientList::dispatchNotification(false, color: 'white');
+            $resultAction = $this->travel->update(
+                $this->only(['photo', 'user_id', 'name', 'description', 'departure', 'arrival', 'payment_method1', 'payment_method2'])
+            );
+            $resultAction ? ClientList::dispatchNotification(title: 'Pacote atualizado com sucesso', color: 'white')
+                : ClientList::dispatchNotification(false, color: 'white');
         }
         $this->reset();
     }
