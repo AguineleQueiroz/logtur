@@ -7,8 +7,7 @@
                 </h2>
 
                 <p class="mt-1 text-sm text-gray-600">
-                    {{ __('Once your account is deleted, all of its resources and data will be permanently deleted.
-                            Please enter your password to Confirm you would like to permanently delete your account.') }}
+                    {{ __('Excluir este passageiro da lista não o excluirá da sua base de dados.') }}
                 </p>
             </div>
             <div class="mt-6 flex justify-end border-t pt-4">

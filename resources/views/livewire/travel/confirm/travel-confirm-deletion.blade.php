@@ -7,7 +7,7 @@
                 </h2>
 
                 <p class="mt-1 text-sm text-gray-600">
-                    {{ __('Assim que este pacote for excluído, todas as informações sobre ele serão apagadas permanentemente. Por favor, digite sua senha para confirmar que deseja excluir permanentemente sua conta.') }}
+                    {{ __('Assim que este pacote for excluído, todas as informações sobre ele como lista de passageiro e lista de pagamentos serão apagadas permanentemente.') }}
                 </p>
             </div>
             <div class="mt-6 flex justify-end border-t pt-4">
