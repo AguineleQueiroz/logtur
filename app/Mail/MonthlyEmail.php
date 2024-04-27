@@ -20,15 +20,22 @@ class MonthlyEmail extends Mailable
     public $sender_email;
     public $title;
     public $body;
+    public $photo;
     /**
      * Create a new message instance.
      */
-    public function __construct(Client $client, string $sender_name, string $sender_email, string $title, string $body) {
+    public function __construct(Client $client,
+                                string $sender_name,
+                                string $sender_email,
+                                string $title,
+                                string $body,
+                                string $photo ) {
         $this->client = $client;
         $this->sender_name = $sender_name;
         $this->sender_email = $sender_email;
         $this->title = $title;
         $this->body = $body;
+        $this->photo = $photo;
     }
 
     /**
@@ -52,7 +59,8 @@ class MonthlyEmail extends Mailable
             markdown: 'mails.monthly_email',
             with: ['client' => $this->client,
                 'title' => $this->title,
-                'content' => $this->body
+                'content' => $this->body,
+                'image' => $this->photo
             ]
         );
     }

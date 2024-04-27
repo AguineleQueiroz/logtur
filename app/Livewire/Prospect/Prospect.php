@@ -71,7 +71,9 @@ class Prospect extends Component
 
         /*email sending routine*/
         foreach ($clients as $client) {
-            Mail::to($client->email)->send(new MonthlyEmail($client, $sender_name, $sender_email, $this->title, $this->body));
+            Mail::to($client->email)->send(new MonthlyEmail(
+                $client, $sender_name, $sender_email, $this->title, $this->body, $this->photo
+            ));
             $email_sent++;
         }
         Notification::make()
