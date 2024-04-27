@@ -14,6 +14,7 @@ class ClientForm extends Form
     /* form properties */
     public string $user_id = '';
     public string $name = '';
+    public string $email = '';
     public string $identity = '';
     public string $age = '';
     public string $city = '';
@@ -29,6 +30,7 @@ class ClientForm extends Form
         return [
             'user_id' => 'required',
             'name' => 'required|min:3|string|max:255',
+            'email' => 'nullable|min:3|string|max:255',
             'identity' => 'required|unique:clients,identity|min:8|max:10|string',
             'age' => 'required|min:7|max:115|numeric',
             'city' => 'required|min:3|max:45|string',
@@ -46,20 +48,21 @@ class ClientForm extends Form
         $this->user_id = User::getOwner();
         if(empty($this->client)) {
             $this->validate();
-            $resultAction = Client::create($this->only(['user_id', 'name', 'identity', 'age', 'city', 'address', 'phone']));
+            $resultAction = Client::create($this->only(['user_id', 'name', 'email', 'identity', 'age', 'city', 'address', 'phone']));
             ClientList::dispatchNotification($resultAction, color: 'white');
 
         }else{
             $this->validate([
                 'user_id' => 'required',
                 'name' => 'required|min:3|string|max:255',
+                'email' => 'nullable|min:3|string|max:255',
                 'identity' => 'required|min:8|max:10|string',
                 'age' => 'required|min:7|max:115|numeric',
                 'city' => 'required|min:3|max:45|string',
                 'address' => 'required|min:5|max:255|string',
                 'phone' => 'required|min:11|max:16|string',
             ]);
-            $resultAction = $this->client->update($this->only(['user_id', 'name', 'identity', 'age', 'city', 'address', 'phone']));
+            $resultAction = $this->client->update($this->only(['user_id', 'name', 'email', 'identity', 'age', 'city', 'address', 'phone']));
             $resultAction ? ClientList::dispatchNotification(color: 'white') : ClientList::dispatchNotification(false, color: 'white');
         }
         $this->reset();
@@ -75,6 +78,7 @@ class ClientForm extends Form
         $this->client = $client;
         $this->user_id =$client->user_id;
         $this->name = $client->name;
+        $this->email = $client->email;
         $this->age = $client->age;
         $this->identity = $client->identity;
         $this->city = $client->city;

@@ -15,6 +15,7 @@ class Client extends Model
     protected $fillable = [
         'user_id',
         'name',
+        'email',
         'identity',
         'age',
         'address',
@@ -24,6 +25,7 @@ class Client extends Model
 
     public function scopeSearch($query, $value) {
         $query->where('name', 'like', "%{$value}%")
+            ->orWhere('email', 'like', "%{$value}%")
             ->orWhere('address', 'like', "%{$value}%")
             ->orWhere('city', 'like', "%{$value}%");
     }
