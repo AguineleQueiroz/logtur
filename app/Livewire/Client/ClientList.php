@@ -22,9 +22,9 @@ class ClientList extends Component
      */
     public function render(): View
     {
-        /*$clients = User::find(Auth::user()->id)->clients;*/
+        /*$clients = User::find(Auth::id())->clients;*/
         return view('livewire.client.client-list', [
-            'clients' => Client::where('user_id', Auth::user()->id)->Search($this->search)->paginate($this->perPage)
+            'clients' => Client::where('user_id', Auth::id())->Search($this->search)->paginate($this->perPage)
         ]);
     }
 
@@ -56,14 +56,14 @@ class ClientList extends Component
                 ->send();
         }
         if($resultAction) {
-            Notification::make()
+            return Notification::make()
                 ->title($title ?? 'Cliente registrado')
                 ->color($color ?? 'success')
                 ->duration($time ?? 4000)
                 ->success()
                 ->send();
         }else{
-            Notification::make()
+            return Notification::make()
                 ->title($title ?? 'Ops! Algo deu errado.')
                 ->color($color ?? 'warning')
                 ->duration($time ?? 4000)

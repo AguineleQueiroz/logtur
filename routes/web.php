@@ -5,6 +5,7 @@ use App\Livewire\Client\ClientList;
 use App\Livewire\Passenger\PassengerList;
 use App\Livewire\Travel\TravelPackages;
 use App\Livewire\Travel\TravelPaymentDetails;
+use App\Livewire\Prospect\Prospect;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/travels', TravelPackages::class)->name('travels');
     Route::get('/travel/payment-details', TravelPaymentDetails::class)->name('payment_details');
     Route::get('/lists', PassengerList::class)->name('lists');
+    Route::get('/prospect', Prospect::class)->name('prospect');
 });
 
 require __DIR__.'/auth.php';

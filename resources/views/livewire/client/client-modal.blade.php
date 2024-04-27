@@ -18,7 +18,12 @@
                     <x-input-error :messages="$errors->get('form.age')" class="mt-2" />
                 </div>
             </div>
-
+            <div class="w-full">
+                <x-input-label for="email" :value="__('Email')"/>
+                <x-text-input wire:model="form.email" id="email" name="email" type="text" class="mt-1 block w-full"
+                              placeholder="{{ __('Email') }}"/>
+                <x-input-error :messages="$errors->get('form.email')" class="mt-2" />
+            </div>
             <div class="flex gap-4">
                 <div class="w-full">
                     <x-input-label for="identity" :value="__('Identidade')"/>

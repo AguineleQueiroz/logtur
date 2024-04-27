@@ -27,7 +27,7 @@ class ClientModal extends ModalComponent
      * @return void
      */
     public function mount(): void {
-        $client = Client::where('user_id', Auth::user()->id)->where('id', $this->client_id)->first();
+        $client = Client::where('user_id', Auth::id())->where('id', $this->client_id)->first();
         if($client) {
             $this->form->setClient($client);
         }
