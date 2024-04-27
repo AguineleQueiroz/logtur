@@ -21,7 +21,7 @@ class ClientFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => '9b7eb74a-81ec-4220-b482-95b1be7d7192',
+            'user_id' => '9bc50e25-c124-4e92-a26c-974debff342d',
             'name' => fake()->name(),
             'identity' => \Faker\Factory::create('pt_BR')->unique()->numberBetween(10000000, 99999999),
             'age' => \Faker\Factory::create('pt_BR')->numberBetween(07, 100),
