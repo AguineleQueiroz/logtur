@@ -22,7 +22,7 @@ class ClientFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => '9c51d8ed-2837-49bf-8ca8-452b5e171979',
+            'user_id' => '9bc50e25-c124-4e92-a26c-974debff342d',
             'name' => fake()->name(),
             'identity' => \Faker\Factory::create('pt_BR')->unique()->numberBetween(10000000, 99999999),
             'email' => \Faker\Factory::create('pt_BR')->email(),
