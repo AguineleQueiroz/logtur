@@ -15,7 +15,7 @@ class ClientList extends Component
 {
 
     use WithPagination;
-    public int $perPage = 5;
+    public int $perPage = 10;
     public string $search = '';
     /**
      * @return View

@@ -29,7 +29,7 @@ class TravelConfirmDeletion extends ModalComponent
         if ($resultAction) {
             ClientList::dispatchNotification(
                 $resultAction,
-                'Cliente excluído',
+                'A Viagem foi excluída',
                 'white'
             );
         } else {

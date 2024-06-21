@@ -7,6 +7,7 @@ use App\Livewire\Passenger\PassengerList;
 use App\Models\PassengersList;
 use App\Models\Travel;
 use App\Models\User;
+use App\Util\GeneralHelper;
 use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Rule;
 use Livewire\Attributes\Validate;
@@ -54,13 +55,12 @@ class CreatePassengerListForm extends Form
      */
     public static function createPassengersList(): void
     {
-
         $user_id = User::getOwner();
         $travel_id = session('travel_id_created');
         $travel = Travel::find($travel_id);
         $name = str_replace('/', '', str_replace(' ','_', strtolower($travel->name)));
 
-        $list = PassengersList::create(['user_id' => $user_id, 'travel_id' => $travel_id, 'name' => $name, 'list' => '{}', 'size' => 0]);
+        $list = PassengersList::create(['user_id' => $user_id, 'travel_id' => $travel_id, 'name' => $name, 'list' => "{}", 'size' => 0]);
 
         $travel->update(['passengers_list_id' => $list->id]);
         $list->update(['travel_id' => $travel->id]);

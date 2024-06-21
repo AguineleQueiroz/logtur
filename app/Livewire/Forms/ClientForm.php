@@ -32,7 +32,7 @@ class ClientForm extends Form
             'name' => 'required|min:3|string|max:255',
             'email' => 'nullable|min:3|string|max:255',
             'identity' => 'required|unique:clients,identity|min:8|max:10|string',
-            'age' => 'required|min:7|max:115|numeric',
+            'age' => 'required|date|before:today',
             'city' => 'required|min:3|max:45|string',
             'address' => 'required|min:5|max:255|string',
             'phone' => 'required|min:11|max:16|string',
@@ -57,7 +57,7 @@ class ClientForm extends Form
                 'name' => 'required|min:3|string|max:255',
                 'email' => 'nullable|min:3|string|max:255',
                 'identity' => 'required|min:8|max:10|string',
-                'age' => 'required|min:7|max:115|numeric',
+                'age' => 'required|date|before:today',
                 'city' => 'required|min:3|max:45|string',
                 'address' => 'required|min:5|max:255|string',
                 'phone' => 'required|min:11|max:16|string',
@@ -78,7 +78,7 @@ class ClientForm extends Form
         $this->client = $client;
         $this->user_id =$client->user_id;
         $this->name = $client->name;
-        $this->email = $client->email;
+        $this->email = $client->email ?? '';
         $this->age = $client->age;
         $this->identity = $client->identity;
         $this->city = $client->city;

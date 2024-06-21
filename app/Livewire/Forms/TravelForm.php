@@ -79,11 +79,11 @@ class TravelForm extends Form
             self::handleAndSavePicture();
             $resultAction = Travel::create($this->only(['photo', 'user_id', 'name', 'description', 'departure', 'arrival', 'payment_method1', 'payment_method2']));
             if(!$resultAction) {
-                ClientList::dispatchNotification($resultAction,'Não foi possivel registrar o pacote', color: 'white');
+                ClientList::dispatchNotification($resultAction,'Não foi possivel registrar a sua viagem', color: 'white');
             }
             session()->put(['travel_id_created' => $resultAction->id]);
             CreatePassengerListForm::createPassengersList();
-            ClientList::dispatchNotification($resultAction,'Pacote registrado com sucesso', color: 'white');
+            ClientList::dispatchNotification($resultAction,'Viagem registrada com sucesso', color: 'white');
         }else{
             $this->validate([
                 'photo' => 'required|max:1024',
@@ -100,7 +100,7 @@ class TravelForm extends Form
             $resultAction = $this->travel->update(
                 $this->only(['photo', 'user_id', 'name', 'description', 'departure', 'arrival', 'payment_method1', 'payment_method2'])
             );
-            $resultAction ? ClientList::dispatchNotification(title: 'Pacote atualizado com sucesso', color: 'white')
+            $resultAction ? ClientList::dispatchNotification(title: 'Viagem atualizada com sucesso', color: 'white')
                 : ClientList::dispatchNotification(false, color: 'white');
         }
         $this->reset();

@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\CssSelector\Exception\InternalErrorException;
 use Throwable;
 
 class Handler extends ExceptionHandler

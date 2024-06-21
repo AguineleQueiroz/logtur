@@ -18,7 +18,7 @@ return new class extends Migration
                 $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
                 $table->string('name');
                 $table->string('identity');
-                $table->string('age')->nullable();
+                $table->date('age')->nullable();
                 $table->string('address');
                 $table->string('city');
                 $table->string('phone');

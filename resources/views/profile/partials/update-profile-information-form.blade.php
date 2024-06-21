@@ -48,7 +48,7 @@
         </div>
         <div>
             <x-input-label for="cpf" :value="__('CPF')" />
-            <x-text-input id="cpf" name="cpf" type="text" class="mt-1 block w-full" :value="old('cpf', $user->cpf)" required autofocus autocomplete="cpf" placeholder="{{ __('000.000.000-00') }}"/>
+            <x-text-input x-mask="999.999.999-99" id="cpf" name="cpf" type="text" class="mt-1 block w-full" :value="old('cpf', $user->cpf)" required autofocus autocomplete="cpf" placeholder="{{ __('000.000.000-00') }}"/>
             <x-input-error class="mt-2" :messages="$errors->get('cpf')" />
         </div>
 

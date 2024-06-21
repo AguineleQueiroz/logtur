@@ -11,11 +11,16 @@
                                   placeholder="{{ __('Nome') }}"/>
                     <x-input-error :messages="$errors->get('form.name')" class="mt-2" />
                 </div>
+{{--                <div>--}}
+{{--                    <x-input-label for="age" :value="__('Idade')"/>--}}
+{{--                    <x-text-input wire:model="form.age" id="age" name="age" type="number" class="mt-1 block w-full"--}}
+{{--                                  placeholder="{{ __('Idade') }}"/>--}}
+{{--                    <x-input-error :messages="$errors->get('form.age')" class="mt-2" />--}}
+{{--                </div>--}}
                 <div>
-                    <x-input-label for="age" :value="__('Idade')"/>
-                    <x-text-input wire:model="form.age" id="age" name="age" type="number" class="mt-1 block w-full"
-                                  placeholder="{{ __('Idade') }}"/>
-                    <x-input-error :messages="$errors->get('form.age')" class="mt-2" />
+                    <x-input-label for="age" :value="__('Data de Nascimento')"/>
+                    <x-text-input wire:model="form.age" id="departure" name="age" type="date" class="mt-1 block w-full"
+                                  placeholder="{{ __('Data de Nascimento') }}"/>
                 </div>
             </div>
             <div class="w-full">

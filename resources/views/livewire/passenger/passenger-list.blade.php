@@ -30,9 +30,9 @@
                                 <table class="w-full text-sm text-left text-gray-500">
                                     <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                                         <tr>
-                                            <th scope="col" class="px-6 py-3 w-96">Nome da lista</th>
+                                            <th scope="col" class="px-6 py-3 w-auto">Nome da lista</th>
                                             <th scope="col" class="px-6 py-3 w-auto">Quantidade de pessoas</th>
-
+                                            <th scope="col" class="px-6 py-3 w-auto">Criada em</th>
                                             <th scope="col" class="px-6 py-3">
                                                 <span class="sr-only">Actions</span>
                                             </th>
@@ -43,6 +43,7 @@
                                         <tr wire:key="'{{$list->id}}'" class="border-b border-gray-300 px-6">
                                             <td class="px-6 py-3 w-auto">{{str_replace('_',' ', $list->name)}}</td>
                                             <td class="px-6 py-3 w-auto">{{$list->size}}</td>
+                                            <td class="px-6 py-3 w-auto">{{\App\Util\GeneralHelper::formatDate($list->created_at)}}</td>
                                             <td class="px-6 py-3 flex items-center justify-end" >
                                                 {{--edit list--}}
                                                 <x-generic-button

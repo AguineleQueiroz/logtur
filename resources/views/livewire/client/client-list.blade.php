@@ -82,7 +82,7 @@
                                                 </td>
                                                 <td class="px-4 py-3 whitespace-nowrap">{{$client->name}}</td>
                                                 <td class="px-4 py-3">{{$client->identity}}</td>
-                                                <td class="px-4 py-3 ">{{$client->age}}</td>
+                                                <td class="px-4 py-3 ">{{\App\Util\GeneralHelper::calculateAge($client->age)}}</td>
                                                 <td class="px-4 py-3 whitespace-nowrap">{{$client->city}}</td>
                                                 <td class="px-4 py-3 w-96">{{$client->address}}</td>
                                                 <td class="px-4 py-3 whitespace-nowrap">{{$client->phone}}</td>

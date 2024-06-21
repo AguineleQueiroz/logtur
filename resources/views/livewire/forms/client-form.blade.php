@@ -13,10 +13,15 @@
                     <x-input-error :messages="$errors->get('form.name')" class="mt-1" />
                     <x-input-error :messages="$errors->get('form.age')"/>
                 </div>
-                <div class="w-[20%]">
+                {{--<div class="w-[20%]">
                     <x-input-label for="age" :value="__('Idade')"/>
                     <x-text-input wire:model="form.age" id="age" name="age" type="text" class="mt-1 block w-full"
                                   placeholder="{{ __('Idade') }}"/>
+                </div>--}}
+                <div>
+                    <x-input-label for="age" :value="__('Data de Nascimento')"/>
+                    <x-text-input wire:model="form.age" id="departure" name="age" type="date" class="mt-1 block w-full"
+                                  placeholder="{{ __('Data de Nascimento') }}"/>
                 </div>
             </div>
             <div class="w-full">
