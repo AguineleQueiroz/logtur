@@ -1,8 +1,8 @@
 @aware(['travel'=>null])
 
-<div class="bg-white rounded-lg shadow-md md:max-w-xxl hover:bg-gray-50 w-full relative mb-6">
+<div class="bg-white shadow-md md:max-w-xxl hover:bg-gray-50 w-full relative mb-6">
     <div class="flex ">
-        <div class="bg-no-repeat bg-right-bottom object-cover rounded-l-lg w-[20%]"
+        <div class="bg-no-repeat bg-right-bottom object-cover w-[20%]"
              style="background-image: url('{{ asset("$travel->photo") }}');
              background-size: cover;"
         >
@@ -67,7 +67,7 @@
             <x-slot name="trigger">
                 <div>
                     <svg
-                         class="w-8 h-8 p-1 cursor-pointer rounded-sm text-gray-300 hover:bg-gray-200
+                         class="w-8 h-8 p-1 cursor-pointer text-gray-300 hover:bg-gray-200
                                 focus:ring-2 relative mx-2 top-3 hover:text-gray-500"
                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                          stroke="currentColor">

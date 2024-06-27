@@ -1,7 +1,7 @@
 <div>
     <div class="py-12">
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-sm">
                 <div class="text-gray-900">
                     <section class="mt-2">
                         <div class="mx-auto max-w-screen-xl">
@@ -14,10 +14,10 @@
                                 <div class="flex flex-col border-t border-dashed">
 
                                     {{-- email image --}}
-                                    <div class="flex flex-col space-y-4 py-4">
+                                    <div class="flex flex-col space-y-4 py-2">
                                         <div class="w-full flex flex-col pb-3">
                                             {{--<label for="photo">Imagem do email:</label>
-                                            <div class="border border-gray-300 rounded-md">
+                                            <div class="border border-gray-300">
                                                 <input  type="file" id="photo" wire:model="photo" wire:loading.attr="src" />
                                                 <x-input-error :messages="$errors->get('photo')" class="mt-2" />
                                             </div>
@@ -25,7 +25,7 @@
                                                 <img src="{{ $photo ? $photo->temporaryUrl()  : ''}}" alt="Imagem carregada">
                                             </div>--}}
 
-                                            <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 p-4"
+                                            <div class="mt-2 flex justify-center border border-dashed border-gray-900/25 p-4"
                                                  style="background-image: url('{{ $photo ? $photo->temporaryUrl()  : ''}}');
                                                  background-size:cover;
                                                  background-position: center"
@@ -41,7 +41,7 @@
                                                                   clip-rule="evenodd" />
                                                         </svg>
                                                         <div class="mt-2 flex-col text-sm leading-6 text-gray-600">
-                                                            <label  for="photo" class="relative cursor-pointer rounded-md bg-white font-semibold
+                                                            <label  for="photo" class="relative cursor-pointer bg-white font-semibold
                                                                 text-indigo-600 focus-within:outline-none  hover:text-indigo-500">
                                                                 <span>
                                                                     Enviar imagem
@@ -52,7 +52,7 @@
                                                         </div>
                                                         <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
                                                     @else
-                                                        <button type="button" wire:click="clear" class="h-10 w-10 rounded-[50%] justify-center align-center p-2" style="background-color: rgb(255,255,255,19%);">
+                                                        <button type="button" wire:click="clear" class="h-10 w-10 justify-center align-center p-2" style="background-color: rgb(255,255,255,19%);">
                                                             <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/ffffff/delete-sign--v1.png" alt="delete-sign--v1"/>
                                                         </button>
                                                     @endif
@@ -71,7 +71,7 @@
                                             <div class="w-full">
                                                 <label for="body" class="text-md">Conteúdo</label>
                                                 <textarea id="body" name="body" wire:model="body"
-                                                          class="h-full block w-full rounded-md border-0 text-gray-900 ring-1 ring-inset ring-gray-300
+                                                          class="h-full block w-full  border-0 text-gray-900 ring-1 ring-inset ring-gray-300
                                                           placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm
                                                           sm:leading-6" placeholder="{{ __('Conteúdo do Email') }}">
                                                 </textarea>

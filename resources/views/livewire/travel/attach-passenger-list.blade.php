@@ -5,7 +5,7 @@
                 <div class="w-full">
                     <x-input-label for="list_selected" :value="__('Listas:')" />
                     <select name="list_selected" wire:model.live="list_selected"
-                            class="block w-full px-4 py-2 text-base text-gray-900 border border-gray-300 rounded-lg
+                            class="block w-full px-4 py-2 text-base text-gray-900 border border-gray-300
                                             bg-gray-50 focus:ring-blue-500 focus:border-blue-500 mt-1"
                             id="grid-state">
                         {{--default value--}}
@@ -27,7 +27,7 @@
                 <div class="w-full" style="margin: 0">
                     <x-input-label for="travel_selected" :value="__('Pacotes:')" />
                     <select name="travel_selected" wire:model.live="travel_selected"
-                            class="block w-full px-4 py-2 text-base text-gray-900 border border-gray-300 rounded-lg
+                            class="block w-full px-4 py-2 text-base text-gray-900 border border-gray-300
                                             bg-gray-50 focus:ring-blue-500 focus:border-blue-500 mt-1"
                             id="grid-state">
                         {{--default value--}}

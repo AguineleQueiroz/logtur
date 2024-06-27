@@ -1,6 +1,6 @@
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+        <div class="bg-white overflow-hidden shadow-sm">
             <div class="p-2 text-gray-900">
                 <div class="flex-col space-y-6 lg:flex lg:space-x-4 lg:flex-row items-center justify-between p-4">
                     {{--text header--}}
@@ -16,7 +16,7 @@
                         {{--Add to passengers list--}}
                         <x-secondary-button
                             disabled
-                            class="inline-flex items-center space-x-2 rounded-l-md border"
+                            class="inline-flex items-center space-x-2 border py-3"
                             wire:click="$dispatch('openModal',
                                             {  component: 'travel.attach-passengers-list-modal' })">
 

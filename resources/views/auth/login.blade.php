@@ -28,24 +28,24 @@
         <!-- Remember Me -->
         <div class="flex items-center justify-between mt-4">
             <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
+                <input id="remember_me" type="checkbox" class="border-gray-300 text-blue-600 shadow-sm focus:ring-blue-500" name="remember">
                 <span class="ml-2 text-sm text-gray-600">{{ __('Lembrar-me') }}</span>
             </label>
             @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-blue-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                <a class="underline text-sm text-gray-600 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" href="{{ route('password.request') }}">
                     {{ __('Esqueceu sua senha?') }}
                 </a>
             @endif
         </div>
 
         <div class="block mt-4">
-            <x-primary-button class="justify-center w-full rounded-md">
+            <x-primary-button class="justify-center w-full">
                 {{ __('Entrar') }}
             </x-primary-button>
         </div>
     </form>
     <div class="text-sm mt-2">
         <span class="text-gray-600">Ainda não tem uma conta?</span>
-        <a href="{{ route('register') }}" class="font-semibold text-blue-700 hover:text-blue-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-blue-500">Cadastre-se</a>
+        <a href="{{ route('register') }}" class="font-semibold text-blue-700 hover:text-blue-700 focus:outline focus:outline-2 focus:outline-blue-600">Cadastre-se</a>
     </div>
 </x-guest-layout>

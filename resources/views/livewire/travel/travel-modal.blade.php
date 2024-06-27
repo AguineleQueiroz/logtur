@@ -9,7 +9,7 @@
             {{-- image and information package --}}
             <div class="flex my-3 space-x-4">
                 <div class="w-96">
-                    <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 p-4"
+                    <div class="mt-2 flex justify-center border border-dashed border-gray-900/25 p-4"
                          style="background-image: url('{{ is_object($form->photo) ? $form->photo->temporaryUrl() : $form->photo  }}');
                          background-size:cover;
                          background-position: center"
@@ -27,7 +27,7 @@
                             @endif
                             @if(!$form->photo)
                                 <div class="mt-2 flex-col text-sm leading-6 text-gray-600">
-                                    <label  for="photo" class="relative cursor-pointer rounded-md bg-white font-semibold
+                                    <label  for="photo" class="relative cursor-pointer bg-white font-semibold
                                             text-indigo-600 focus-within:outline-none  hover:text-indigo-500">
                                         <span>
                                             Enviar imagem
@@ -41,7 +41,7 @@
                                 <div class="h-10 w-10"></div>
                                 <div class="mt-2 flex-col text-sm leading-6 text-gray-600">
                                     <label  for="photo"
-                                            class="relative cursor-pointer rounded-md font-semibold
+                                            class="relative cursor-pointer font-semibold
                                             text-indigo-600 focus-within:outline-none  hover:text-indigo-500">
                                         <span class="text-white font-medium">
                                             Enviar imagem

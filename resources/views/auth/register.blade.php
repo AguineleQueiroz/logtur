@@ -42,11 +42,11 @@
         </div>
 
         <div class="flex-column items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+            <a class="underline text-sm text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" href="{{ route('login') }}">
                 {{ __('Já tem uma conta?') }}
             </a>
 
-            <x-primary-button class="justify-center w-full rounded-md">
+            <x-primary-button class="justify-center w-full">
                 {{ __('Cadastrar') }}
             </x-primary-button>
         </div>

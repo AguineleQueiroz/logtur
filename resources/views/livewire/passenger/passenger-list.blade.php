@@ -1,10 +1,10 @@
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+        <div class="bg-white overflow-hidden shadow-sm">
             <div class="text-gray-900">
                 <section class="mt-2">
                     <div class="mx-auto max-w-screen-xl">
-                        <div class="bg-white relative shadow-md sm:rounded-lg overflow-x-auto">
+                        <div class="bg-white relative shadow-md  overflow-x-auto">
                             <div class="flex items-center justify-between p-6">
                                 <div class="flex">
                                     <div class="relative w-full">
@@ -20,7 +20,7 @@
                                         <input
                                             wire:model.live.debounce.300ms="search"
                                             type="text"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm
                                                     focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2 "
                                             placeholder="Buscar" required="">
                                     </div>
@@ -122,7 +122,7 @@
                                         <label class="w-20 text-sm font-medium text-gray-900">Por Pagina</label>
                                         <select
                                             wire:model.live="perPage"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm
                                                     focus:ring-blue-500 focus:border-blue-500 block w-20 p-2.5 ">
                                             <option value="5">5</option>
                                             <option value="10">10</option>

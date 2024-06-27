@@ -4,7 +4,7 @@
             <div class="relative">
                 <x-input-label for="list_id" :value="__('Atribuir clientes a lista:')" />
                 <select name="list_id" wire:model.live="list_id"
-                        class="block w-full px-4 py-2 text-base text-gray-900 border border-gray-300 rounded-lg
+                        class="block w-full px-4 py-2 text-base text-gray-900 border border-gray-300
                                     bg-gray-50 focus:ring-blue-500 focus:border-blue-500 mt-1"
                         id="grid-state">
                     {{--default value--}}

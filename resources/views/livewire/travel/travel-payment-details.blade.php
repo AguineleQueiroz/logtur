@@ -1,11 +1,11 @@
 <div>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-sm">
                 <div class="text-gray-900">
                     <section class="mt-2">
                         <div class="mx-auto max-w-screen-xl">
-                            <div class="bg-white relative shadow-md sm:rounded-lg">
+                            <div class="bg-white relative shadow-md">
                                 <div class="flex flex-col lg:flex-row items-center justify-between p-6 lg:space-x-3 gap-4">
                                     <div class="flex order-1 lg:order-0">
                                         <div class="relative w-full">
@@ -21,7 +21,7 @@
                                             <input
                                                 wire:model.live.debounce.300ms="search"
                                                 type="text"
-                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm
                                                         focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2"
                                                 placeholder="Buscar" required=""
                                             >
@@ -180,7 +180,7 @@
                                                     <x-dropdown-options align="right" width="80">
                                                         <x-slot name="trigger">
                                                             <div class="inline-flex items-center p-2 border border-transparent
-                                                                        text-sm leading-4 font-medium rounded-md text-gray-500
+                                                                        text-sm leading-4 font-medium text-gray-500
                                                                         bg-white hover:text-gray-700 focus:outline-none
                                                                         transition ease-in-out duration-150">
                                                                 <div>
@@ -192,7 +192,7 @@
                                                             <div class="flex items-center px-1">
                                                                 {{--Edit client--}}
                                                                 <x-dropdown-button
-                                                                    class=" rounded-md border"
+                                                                    class="border"
                                                                     wire:click="$dispatch('openModal',
                                                                         {
                                                                             component: 'travel.travel-edit-payments-modal',

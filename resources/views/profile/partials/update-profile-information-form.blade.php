@@ -53,7 +53,7 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button class="px-6 rounded-md">{{ __('Salvar') }}</x-primary-button>
+            <x-primary-button class="px-6">{{ __('Salvar') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')
                 <p

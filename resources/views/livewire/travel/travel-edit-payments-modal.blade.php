@@ -5,7 +5,7 @@
             <h2 class="text-lg font-medium text-gray-900">Novo Pagamento</h2>
         </header>
         <div class="mt-4 space-y-6">
-            <fieldset class="border border-dashed border-gray-300 rounded-md p-4">
+            <fieldset class="border border-dashed border-gray-300 p-4">
                 <legend class="px-2">Cliente</legend>
                 <div class="flex flex-col gap-4">
                     <div class="w-full">
@@ -21,7 +21,7 @@
                 </div>
             </fieldset>
 
-            <fieldset class="flex gap-4 border border-dashed border-gray-300 rounded-md p-4">
+            <fieldset class="flex gap-4 border border-dashed border-gray-300 p-4">
                 <legend class="px-2">Selecione os meses pagos:</legend>
                 <div class="flex w-full">
                     <div class="w-full">
