@@ -6,13 +6,11 @@ use App\Livewire\Forms;
 use App\Models\Travel;
 use Illuminate\Contracts\View\View;
 use Illuminate\Validation\ValidationException;
-use Livewire\WithFileUploads;
 use LivewireUI\Modal\ModalComponent;
 
 class TravelModal extends ModalComponent
 {
-    use WithFileUploads;
-    public $photo;
+
     public string $travel_id = '';
     public Forms\TravelForm $form;
 

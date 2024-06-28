@@ -58,7 +58,7 @@ class CreatePassengerListForm extends Form
         $user_id = User::getOwner();
         $travel_id = session('travel_id_created');
         $travel = Travel::find($travel_id);
-        $name = str_replace('/', '', str_replace(' ','_', strtolower($travel->name)));
+        $name = str_replace('/', '', str_replace(' ','_', strtolower($travel->destiny)));
 
         $list = PassengersList::create(['user_id' => $user_id, 'travel_id' => $travel_id, 'name' => $name, 'list' => "{}", 'size' => 0]);
 

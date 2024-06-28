@@ -2,27 +2,26 @@
 
 namespace App\Livewire\Travel;
 
+use App\Models\Travel;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class TravelPackages extends Component
 {
+    use WithPagination;
+    public int $perPage = 10;
+    public string $search = '';
     /**
      * @return View
      */
     public function render():View
     {
-        $tempData = User::find(Auth::user()->id)->travels;
-        /*Travel::where('user_id', Auth::user()->id)->get();*/
-        foreach ($tempData as $travel){
-            $travel->departure = (Carbon::parse($travel->departure))->format("d \\d\\e M");
-            $travel->arrival = (Carbon::parse($travel->arrival))->format("d \\d\\e M");
-        }
         return view('livewire.travel.travel-packages',[
-            'travels' => $tempData
+            'travels' => Travel::where('user_id', Auth::id())->Search($this->search)->paginate($this->perPage)
         ]);
     }
 

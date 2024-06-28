@@ -16,13 +16,12 @@ return new class extends Migration
                 $table->uuid('id')->primary();
                 $table->uuid('user_id')->index();
                 $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
-                $table->string('photo');
-                $table->string('name');
+                $table->string('destiny');
                 $table->dateTime('departure');
                 $table->dateTime('arrival');
-                $table->string('description');
-                $table->string('payment_method1');
-                $table->string('payment_method2');
+                $table->string('status');
+                $table->string('available_vacancies');
+                $table->string('occupied_vacancies');
                 $table->timestamps();
             });
         }

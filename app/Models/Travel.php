@@ -14,16 +14,20 @@ class Travel extends Model
 
     protected $table = 'travels';
     protected $fillable = [
-        'photo',
         'user_id',
         'passengers_list_id',
-        'name',
+        'destiny',
         'departure',
         'arrival',
-        'description',
-        'payment_method1',
-        'payment_method2',
+        'status',
+        'occupied_vacancies',
+        'available_vacancies',
     ];
+
+    public function scopeSearch($query, $value) {
+        $query->where('destiny', 'like', "%{$value}%")
+            ->orWhere('status', 'like', "%{$value}%");
+    }
 
     /**
      * @return BelongsTo

@@ -19,14 +19,14 @@ class TravelForm extends Form
     public ?Travel $travel = null;
 
     /* Form properties */
-    public $photo;
     public string $user_id = '';
-    public string $name = '';
-    public string $description = '';
+    public string $destiny = '';
     public string $departure = '';
     public string $arrival = '';
-    public string $payment_method1 = '';
-    public string $payment_method2 = '';
+    public int $available_vacancies = 1;
+    public int $occupied_vacancies = 0;
+    public string $status = 'pending';
+
 
     /**
      * Rules for validation fields
@@ -35,14 +35,13 @@ class TravelForm extends Form
      */
     protected function rules(): array {
         return [
-            'photo' => 'required|image|max:1024',
             'user_id' => 'required',
-            'name' => 'required|unique:travels|min:3|max:45|string',
-            'description' => 'required|min:5|max:135|string',
+            'destiny' => 'required|unique:travels|min:3|max:45|string',
+            'status' => 'required|min:5|string',
+            'available_vacancies' => 'required|min:1|numeric',
+            'occupied_vacancies' => 'required|min:0|numeric',
             'departure' => 'required|date|after_or_equal:today',
             'arrival' => 'required|date|after_or_equal:departure',
-            'payment_method1' => 'required|min:5|max:35|string',
-            'payment_method2' => 'required|min:5|max:35|string',
         ];
     }
 
@@ -51,20 +50,20 @@ class TravelForm extends Form
      *
      * @return void
      */
-    public function handleAndSavePicture(): void
-    {
-        if(!Storage::exists('app/public/travel')) {
-            File::makeDirectory(storage_path('app/public/travel'), 0755, true, true);
-        }
-        if(!str_contains($this->photo, 'storage/travel/')) {
-            $imageExt = $this->photo->getClientOriginalExtension();
-            $filename = time().'.'.$imageExt;
-            $urlImage = 'storage/travel/'.$filename;
-            $this->photo->storeAs('travel', $filename, 'public');
-
-            $this->photo = $urlImage;
-        }
-    }
+//    public function handleAndSavePicture(): void
+//    {
+//        if(!Storage::exists('app/public/travel')) {
+//            File::makeDirectory(storage_path('app/public/travel'), 0755, true, true);
+//        }
+//        if(!str_contains($this->photo, 'storage/travel/')) {
+//            $imageExt = $this->photo->getClientOriginalExtension();
+//            $filename = time().'.'.$imageExt;
+//            $urlImage = 'storage/travel/'.$filename;
+//            $this->photo->storeAs('travel', $filename, 'public');
+//
+//            $this->photo = $urlImage;
+//        }
+//    }
 
     /**
      * Saves data after form submission
@@ -75,9 +74,8 @@ class TravelForm extends Form
         $this->user_id = User::getOwner();
         if(empty($this->travel)) {
             $this->validate();
-            /*handle image package*/
-            self::handleAndSavePicture();
-            $resultAction = Travel::create($this->only(['photo', 'user_id', 'name', 'description', 'departure', 'arrival', 'payment_method1', 'payment_method2']));
+
+            $resultAction = Travel::create($this->only(['user_id', 'destiny', 'status', 'departure', 'arrival', 'available_vacancies', 'occupied_vacancies']));
             if(!$resultAction) {
                 ClientList::dispatchNotification($resultAction,'Não foi possivel registrar a sua viagem', color: 'white');
             }
@@ -86,19 +84,16 @@ class TravelForm extends Form
             ClientList::dispatchNotification($resultAction,'Viagem registrada com sucesso', color: 'white');
         }else{
             $this->validate([
-                'photo' => 'required|max:1024',
                 'user_id' => 'required',
-                'name' => 'required|min:3|max:45|string',
-                'description' => 'required|min:5|max:135|string',
+                'destiny' => 'required|unique:travels|min:3|max:45|string',
+                'status' => 'required|min:5|string',
+                'available_vacancies' => 'required|min:1|numeric',
+                'occupied_vacancies' => 'required|min:0|numeric',
                 'departure' => 'required|date|after_or_equal:today',
                 'arrival' => 'required|date|after_or_equal:departure',
-                'payment_method1' => 'required|min:5|max:35|string',
-                'payment_method2' => 'required|min:5|max:35|string',
             ]);
-            /*handle image package*/
-            self::handleAndSavePicture();
             $resultAction = $this->travel->update(
-                $this->only(['photo', 'user_id', 'name', 'description', 'departure', 'arrival', 'payment_method1', 'payment_method2'])
+                $this->only(['user_id', 'destiny', 'status', 'departure', 'arrival', 'available_vacancies', 'occupied_vacancies'])
             );
             $resultAction ? ClientList::dispatchNotification(title: 'Viagem atualizada com sucesso', color: 'white')
                 : ClientList::dispatchNotification(false, color: 'white');
@@ -120,12 +115,11 @@ class TravelForm extends Form
 
         $this->travel = $travel;
         $this->user_id =$travel->user_id;
-        $this->photo = $travel->photo;
-        $this->name = $travel->name;
-        $this->description = $travel->description;
+        $this->destiny = $travel->destiny;
+        $this->status = $travel->status;
         $this->departure = $travel->departure;
         $this->arrival = $travel->arrival;
-        $this->payment_method1 = $travel->payment_method1;
-        $this->payment_method2 = $travel->payment_method2;
+        $this->available_vacancies = $travel->available_vacancies;
+        $this->occupied_vacancies = $travel->occupied_vacancies;
     }
 }

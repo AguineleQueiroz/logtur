@@ -3,6 +3,7 @@
 namespace App\Helpers;
 
 use App\Models\PassengersList;
+use Carbon\Carbon;
 
 class Helper
 {
@@ -16,5 +17,8 @@ class Helper
             return PassengersList::find($list_id)->size;
         }
         return null;
+    }
+    public static function convertDate($date) {
+        return Carbon::parse($date)->format("d \\d\\e M");
     }
 }
