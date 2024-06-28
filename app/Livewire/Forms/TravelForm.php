@@ -85,7 +85,7 @@ class TravelForm extends Form
         }else{
             $this->validate([
                 'user_id' => 'required',
-                'destiny' => 'required|unique:travels|min:3|max:45|string',
+                'destiny' => 'required|min:3|max:45|string',
                 'status' => 'required|min:5|string',
                 'available_vacancies' => 'required|min:1|numeric',
                 'occupied_vacancies' => 'required|min:0|numeric',

@@ -1,4 +1,12 @@
-@php $status = ['pending' => 'Pendente', 'in progress' => 'Em Andamento', 'accomplished' => 'Concluída'] @endphp
+@php $status = [
+     'pending' => '<span class="px-2 rounded-lg" style="background: rgba(21, 164, 255, 0.35);color: #176798">Pendente</span>',
+     'in progress' => '<span class="px-2 rounded-lg" style="background-color: #BFF6C3; color:#197050;">Em Andamento</span>',
+     'accomplished' => '<span class="px-2 rounded-lg" style="background-color: #FFACAC; color:#8c3434;">Concluída</span>']
+
+
+
+
+@endphp
 <div>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

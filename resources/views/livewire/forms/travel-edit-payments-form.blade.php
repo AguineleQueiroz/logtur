@@ -6,7 +6,7 @@
         </header>
         <div class="mt-4 space-y-6">
             <fieldset class="border border-dashed border-gray-300 p-4">
-                <legend class="px-2">Cliente</legend>
+                <legend class="px-2">Viajante</legend>
                 <div class="flex flex-col gap-4">
                     <div class="w-full">
                         <x-input-label for="name" :value="__('Nome')"/>
