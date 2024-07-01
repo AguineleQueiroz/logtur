@@ -1,11 +1,8 @@
 @php $status = [
      'pending' => '<span class="px-2 rounded-lg" style="background: rgba(21, 164, 255, 0.35);color: #176798">Pendente</span>',
-     'in progress' => '<span class="px-2 rounded-lg" style="background-color: #BFF6C3; color:#197050;">Em Andamento</span>',
-     'accomplished' => '<span class="px-2 rounded-lg" style="background-color: #FFACAC; color:#8c3434;">Concluída</span>']
-
-
-
-
+     'accomplished' => '<span class="px-2 rounded-lg" style="background-color: #BFF6C3; color:#197050;">Concluída</span>',
+     'in progress' => '<span class="px-2 rounded-lg" style="background-color: #FFF078; color:#8c3434;">Em Andamento</span>'
+     ]
 @endphp
 <div>
     <div class="py-12">
@@ -56,13 +53,14 @@
                                 <div class="pt-4 border-t border-dashed">
                                     <div class="overflow-auto">
                                         <table class="w-full text-sm text-left text-gray-500 overflow-x-hidden">
-                                            <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                                            <thead class="text-xs text-gray-700 uppercase bg-sky-50">
                                             <tr>
                                                 <th scope="col" class="px-4 py-3">Destino</th>
                                                 <th scope="col" class="px-4 py-3">Saída</th>
                                                 <th scope="col" class="px-4 py-3">Chegada</th>
                                                 <th scope="col" class="px-4 py-3">Número de Vagas</th>
                                                 <th scope="col" class="px-4 py-3">Vagas Disponíveis</th>
+                                                <th scope="col" class="px-4 py-3">Valor</th>
                                                 <th scope="col" class="px-4 py-3">Status</th>
                                                 <th scope="col" class="px-4 py-3">
                                                     <span class="sr-only">Actions</span>
@@ -77,6 +75,7 @@
                                                     <td class="px-4 py-3 ">{{ Helper::convertDate($travel->arrival) }}</td>
                                                     <td class="px-4 py-3 ">{{$travel->available_vacancies}}</td>
                                                     <td class="px-4 py-3 ">{{$travel->occupied_vacancies}}</td>
+                                                    <td class="px-4 py-3 ">R$ {{str_replace('.', ',', $travel->price)}}</td>
                                                     <td class="px-4 py-3 whitespace-nowrap">{!! $status[$travel->status] !!}</td>
                                                     <td class="px-4 py-3 flex items-center justify-end">
                                                         <x-dropdown-options align="right" width="80">

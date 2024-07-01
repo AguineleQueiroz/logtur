@@ -45,7 +45,7 @@ class GeneralHelper {
     public static function formatDate($datetime): string
     {
         $date = Carbon::createFromFormat('Y-m-d H:i:s', $datetime);
-        $formattedDate = $date->translatedFormat('d \d\e F');
+        $formattedDate = $date->translatedFormat('d \d\e F, Y');
         return $formattedDate;
     }
 }

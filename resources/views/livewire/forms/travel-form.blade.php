@@ -55,6 +55,11 @@
                     </select>
                 </div>
             </div>
+            <div class="w-[25%]">
+                <x-input-label for="price" :value="__('Valor do Pacote')" />
+                <x-text-input wire:model="form.price" id="price" name="price"
+                              type="number" min="0.00" step="0.01" class="mt-1 block w-full" placeholder="{{ __('0.00') }}"/>
+            </div>
         </div>
 
         <div class="mt-5 flex justify-end border-t pt-4 space-x-4 min-w-max">

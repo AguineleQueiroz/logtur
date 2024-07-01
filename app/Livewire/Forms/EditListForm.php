@@ -32,7 +32,7 @@ class EditListForm extends Form
     {
         $this->name = str_replace(' ','_', strtolower($this->name));
         $this->validate([
-            'name' => 'required|min:5|max:45|unique:passengers_list,name'
+            'name' => 'required|min:5|max:45'
         ]);
         $resultAction = $this->list->update(['name' => $this->name]);
         $resultAction ? ClientList::dispatchNotification(title: 'Nome da lista atualizado.', color: 'white') : ClientList::dispatchNotification(false, color: 'white');

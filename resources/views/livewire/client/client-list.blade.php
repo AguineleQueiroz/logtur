@@ -53,118 +53,120 @@
                                         </x-primary-button>
                                     </div>
                                 </div>
-                                <div class="overflow-auto">
-                                    <table class="w-full text-sm text-left text-gray-500 overflow-x-hidden">
-                                        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-                                        <tr>
-                                            <th scope="col" class="px-4 py-3"></th>
-                                            <th scope="col" class="px-4 py-3">Nome</th>
-                                            <th scope="col" class="px-4 py-3">Identidade</th>
-                                            <th scope="col" class="px-4 py-3">Idade</th>
-                                            <th scope="col" class="px-4 py-3">Cidade</th>
-                                            <th scope="col" class="px-4 py-3">Endereço</th>
-                                            <th scope="col" class="px-4 py-3">Telefone</th>
-                                            <th scope="col" class="px-4 py-3">
-                                                <span class="sr-only">Actions</span>
-                                            </th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        @forelse($clients as $client)
-                                            <tr wire:key="'{{$client->id}}'" class="border-b border-gray-300">
-                                                <td class="ps-6">
-                                                    {{--<x-input-label for="passengers" :value="__('Nome')"/>--}}
-                                                    <input type="checkbox"
-                                                           value="{{$client->id}}"
-                                                           wire:click="selectClients('{{$client->id}}')"
-                                                           class="appearance-none h-3 w-3 mb-1 border-gray-300"
-                                                    />
-                                                </td>
-                                                <td class="px-4 py-3 whitespace-nowrap">{{$client->name}}</td>
-                                                <td class="px-4 py-3">{{$client->identity}}</td>
-                                                <td class="px-4 py-3 ">{{\App\Util\GeneralHelper::calculateAge($client->age)}}</td>
-                                                <td class="px-4 py-3 whitespace-nowrap">{{$client->city}}</td>
-                                                <td class="px-4 py-3 w-96">{{$client->address}}</td>
-                                                <td class="px-4 py-3 whitespace-nowrap">{{$client->phone}}</td>
-                                                <td class="px-4 py-3 flex items-center justify-end" >
-                                                    <x-dropdown-options align="right" width="80">
-                                                        <x-slot name="trigger">
-                                                            <div class="inline-flex items-center p-2 border border-transparent
-                                                                        text-sm leading-4 font-medium text-gray-500
-                                                                        bg-white hover:text-gray-700 focus:outline-none
-                                                                        transition ease-in-out duration-150">
-                                                                <div>
-                                                                    <x-tabler-grip-vertical class="cursor-pointer"/>
-                                                                </div>
-                                                            </div>
-                                                        </x-slot>
-                                                        <x-slot name="content">
-                                                            <div class="flex items-center px-1">
-                                                                {{--Edit client--}}
-                                                                <x-dropdown-button
-                                                                    class="border"
-                                                                    wire:click="$dispatch('openModal',
-                                                                        {
-                                                                            component: 'client.client-modal',
-                                                                            arguments: {
-                                                                                'client_id':'{{$client->id}}'
-                                                                            }
-                                                                        })"
-                                                                >
-                                                                    Editar
-                                                                </x-dropdown-button>
-                                                                {{--Delete client--}}
-                                                                <x-dropdown-button
-                                                                    class="border-t border-b border-l"
-                                                                    wire:click="$dispatch('openModal',
-                                                                                {
-                                                                                    component: 'client.confirm.client-confirm-deletion',
-                                                                                    arguments: {
-                                                                                        'client_id': '{{$client->id}}'
-                                                                                    }
-                                                                                })">
-                                                                    Deletar
-                                                                </x-dropdown-button>
-                                                            </div>
-                                                        </x-slot>
-                                                    </x-dropdown-options>
-                                                </td>
+                                <div class="pt-4 border-t border-dashed">
+                                    <div class="overflow-auto ">
+                                        <table class="w-full text-sm text-left text-gray-500 overflow-x-hidden">
+                                            <thead class="text-xs text-gray-700 uppercase bg-sky-50">
+                                            <tr>
+                                                <th scope="col" class="px-4 py-3"></th>
+                                                <th scope="col" class="px-4 py-3">Nome</th>
+                                                <th scope="col" class="px-4 py-3">Identidade</th>
+                                                <th scope="col" class="px-4 py-3">Idade</th>
+                                                <th scope="col" class="px-4 py-3">Cidade</th>
+                                                <th scope="col" class="px-4 py-3">Endereço</th>
+                                                <th scope="col" class="px-4 py-3">Telefone</th>
+                                                <th scope="col" class="px-4 py-3">
+                                                    <span class="sr-only">Actions</span>
+                                                </th>
                                             </tr>
-                                        @empty
-                                            <table class="w-full text-sm text-left text-gray-500">
-                                                <tr class="w-full flex flex-col items-center py-5">
-                                                    <td class="w-full flex flex-col items-center">
-                                                        <div class="w-full flex flex-col items-center py-5">
-                                                            <div>
-                                                                <svg width="200px" height="200px" viewBox="0 0 24 24"
-                                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
-
-                                                                    <path d="M9 15C9.85038 15.6303 10.8846 16 12
-                                                                            16C13.1154 16 14.1496 15.6303 15 15"
-                                                                          stroke="#4b5563" stroke-width=".1"
-                                                                          stroke-linecap="round"/>
-                                                                    <ellipse cx="15" cy="9.5" rx="1.2" ry="1" fill="#9ca3af"/>
-                                                                    <ellipse cx="9" cy="9.5" rx="1.2" ry="1" fill="#9ca3af"/>
-                                                                    <path d="M22 19.723V12.3006C22 6.61173 17.5228 2 12
-                                                                    2C6.47715 2 2 6.61173 2 12.3006V19.723C2 21.0453
-                                                                    3.35098 21.9054 4.4992 21.314C5.42726 20.836 6.5328
-                                                                    20.9069 7.39614 21.4998C8.36736 22.1667 9.63264
-                                                                    22.1667 10.6039 21.4998L10.9565 21.2576C11.5884
-                                                                    20.8237 12.4116 20.8237 13.0435 21.2576L13.3961
-                                                                    21.4998C14.3674 22.1667 15.6326 22.1667 16.6039
-                                                                    21.4998C17.4672 20.9069 18.5727 20.836 19.5008
-                                                                    21.314C20.649 21.9054 22 21.0453 22 19.723Z"
-                                                                          stroke="#1C274C" stroke-width=".02"/>
-                                                                </svg>
-                                                            </div>
-                                                            <p class="text-gray-500 mt-5">Nenhum cliente para mostrar...</p>
-                                                        </div>
+                                            </thead>
+                                            <tbody>
+                                            @forelse($clients as $client)
+                                                <tr wire:key="'{{$client->id}}'" class="border-b border-gray-300">
+                                                    <td class="ps-6">
+                                                        {{--<x-input-label for="passengers" :value="__('Nome')"/>--}}
+                                                        <input type="checkbox"
+                                                               value="{{$client->id}}"
+                                                               wire:click="selectClients('{{$client->id}}')"
+                                                               class="appearance-none h-3 w-3 mb-1 border-gray-300"
+                                                        />
+                                                    </td>
+                                                    <td class="px-4 py-3 whitespace-nowrap">{{$client->name}}</td>
+                                                    <td class="px-4 py-3">{{$client->identity}}</td>
+                                                    <td class="px-4 py-3 ">{{\App\Util\GeneralHelper::calculateAge($client->age)}}</td>
+                                                    <td class="px-4 py-3 whitespace-nowrap">{{$client->city}}</td>
+                                                    <td class="px-4 py-3 w-96">{{$client->address}}</td>
+                                                    <td class="px-4 py-3 whitespace-nowrap">{{$client->phone}}</td>
+                                                    <td class="px-4 py-3 flex items-center justify-end" >
+                                                        <x-dropdown-options align="right" width="80">
+                                                            <x-slot name="trigger">
+                                                                <div class="inline-flex items-center p-2 border border-transparent
+                                                                            text-sm leading-4 font-medium text-gray-500
+                                                                            bg-white hover:text-gray-700 focus:outline-none
+                                                                            transition ease-in-out duration-150">
+                                                                    <div>
+                                                                        <x-tabler-grip-vertical class="cursor-pointer"/>
+                                                                    </div>
+                                                                </div>
+                                                            </x-slot>
+                                                            <x-slot name="content">
+                                                                <div class="flex items-center px-1">
+                                                                    {{--Edit client--}}
+                                                                    <x-dropdown-button
+                                                                        class="border"
+                                                                        wire:click="$dispatch('openModal',
+                                                                            {
+                                                                                component: 'client.client-modal',
+                                                                                arguments: {
+                                                                                    'client_id':'{{$client->id}}'
+                                                                                }
+                                                                            })"
+                                                                    >
+                                                                        Editar
+                                                                    </x-dropdown-button>
+                                                                    {{--Delete client--}}
+                                                                    <x-dropdown-button
+                                                                        class="border-t border-b border-l"
+                                                                        wire:click="$dispatch('openModal',
+                                                                                    {
+                                                                                        component: 'client.confirm.client-confirm-deletion',
+                                                                                        arguments: {
+                                                                                            'client_id': '{{$client->id}}'
+                                                                                        }
+                                                                                    })">
+                                                                        Deletar
+                                                                    </x-dropdown-button>
+                                                                </div>
+                                                            </x-slot>
+                                                        </x-dropdown-options>
                                                     </td>
                                                 </tr>
-                                            </table>
-                                        @endforelse
-                                        </tbody>
-                                    </table>
+                                            @empty
+                                                <table class="w-full text-sm text-left text-gray-500">
+                                                    <tr class="w-full flex flex-col items-center py-5">
+                                                        <td class="w-full flex flex-col items-center">
+                                                            <div class="w-full flex flex-col items-center py-5">
+                                                                <div>
+                                                                    <svg width="200px" height="200px" viewBox="0 0 24 24"
+                                                                         fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                                                                        <path d="M9 15C9.85038 15.6303 10.8846 16 12
+                                                                                16C13.1154 16 14.1496 15.6303 15 15"
+                                                                              stroke="#4b5563" stroke-width=".1"
+                                                                              stroke-linecap="round"/>
+                                                                        <ellipse cx="15" cy="9.5" rx="1.2" ry="1" fill="#9ca3af"/>
+                                                                        <ellipse cx="9" cy="9.5" rx="1.2" ry="1" fill="#9ca3af"/>
+                                                                        <path d="M22 19.723V12.3006C22 6.61173 17.5228 2 12
+                                                                        2C6.47715 2 2 6.61173 2 12.3006V19.723C2 21.0453
+                                                                        3.35098 21.9054 4.4992 21.314C5.42726 20.836 6.5328
+                                                                        20.9069 7.39614 21.4998C8.36736 22.1667 9.63264
+                                                                        22.1667 10.6039 21.4998L10.9565 21.2576C11.5884
+                                                                        20.8237 12.4116 20.8237 13.0435 21.2576L13.3961
+                                                                        21.4998C14.3674 22.1667 15.6326 22.1667 16.6039
+                                                                        21.4998C17.4672 20.9069 18.5727 20.836 19.5008
+                                                                        21.314C20.649 21.9054 22 21.0453 22 19.723Z"
+                                                                              stroke="#1C274C" stroke-width=".02"/>
+                                                                    </svg>
+                                                                </div>
+                                                                <p class="text-gray-500 mt-5">Nenhum cliente para mostrar...</p>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            @endforelse
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                                 <div class="p-6">
                                     <div class="flex">

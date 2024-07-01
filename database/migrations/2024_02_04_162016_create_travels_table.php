@@ -20,6 +20,7 @@ return new class extends Migration
                 $table->dateTime('departure');
                 $table->dateTime('arrival');
                 $table->string('status');
+                $table->float('price');
                 $table->string('available_vacancies');
                 $table->string('occupied_vacancies');
                 $table->timestamps();

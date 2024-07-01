@@ -6,7 +6,7 @@
 
         <div class="flex flex-col border-t border-dashed space-y-4">
 
-            {{-- image and information package --}}
+            {{-- information package --}}
             <div class="flex my-3 space-x-4">
                 <div class="flex space-x-2 w-full">
                     <div>
@@ -53,6 +53,11 @@
                         <option value="accomplished">Realizada</option>
                     </select>
                 </div>
+            </div>
+            <div class="w-[25%]">
+                <x-input-label for="price" :value="__('Valor do Pacote')" />
+                <x-text-input wire:model="form.price" id="price" name="price"
+                              type="number" min="0.00" step="0.01" class="mt-1 block w-full" placeholder="{{ __('0.00') }}"/>
             </div>
         </div>
 

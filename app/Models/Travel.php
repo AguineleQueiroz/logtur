@@ -20,6 +20,7 @@ class Travel extends Model
         'departure',
         'arrival',
         'status',
+        'price',
         'occupied_vacancies',
         'available_vacancies',
     ];
