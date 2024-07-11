@@ -44,9 +44,10 @@ class ClientList extends Component
      * @param $title
      * @param $color
      * @param $time
-     * @return Notification|void
+     * @return Notification
      */
-    public static function dispatchNotification($resultAction = null, $title = null, $color = null, $time = null ) {
+    public static function dispatchNotification($resultAction = null, $title = null, $color = null, $time = null ): Notification {
+
         if($resultAction === null) {
             return Notification::make()
                 ->title($title ?? 'Registro atualizado!')
