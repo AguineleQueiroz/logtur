@@ -1,7 +1,12 @@
 <div>
     <form wire:submit.prevent="save" class="p-6">
         <header>
-            <h2 class="text-lg font-medium text-gray-900">Cadastrar Cliente</h2>
+	    @if(!empty($form['name']))
+                <h2 class="text-lg font-medium text-gray-900">Editar Cliente</h2>
+            @else
+                <h2 class="text-lg font-medium text-gray-900">Cadastrar Cliente</h2>
+            @endif
+            {{--<h2 class="text-lg font-medium text-gray-900">Cadastrar Cliente</h2>--}}
         </header>
 
         <div class="mt-6 border-t pt-3 space-y-2">
