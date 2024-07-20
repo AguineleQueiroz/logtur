@@ -2,7 +2,11 @@
 <div>
     <form wire:submit.prevent="save" class="p-6">
         <header class="mb-2">
-            <h2 class="text-lg font-medium text-gray-900">Cadastrar Pacote</h2>
+            @if(!($travel_id === ''))
+                <h2 class="text-lg font-medium text-gray-900">Editar Pacote</h2>
+            @else
+                <h2 class="text-lg font-medium text-gray-900">Cadastrar Pacote</h2>
+            @endif
         </header>
 
         <div class="flex flex-col border-t border-dashed space-y-4">
