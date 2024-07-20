@@ -1,7 +1,7 @@
 <div>
     <form wire:submit.prevent="save" class="p-6">
         <header>
-	    @if(!empty($form['name']))
+	    @if(!isset($client_id) or $client_id === '' )
                 <h2 class="text-lg font-medium text-gray-900">Editar Cliente</h2>
             @else
                 <h2 class="text-lg font-medium text-gray-900">Cadastrar Cliente</h2>
