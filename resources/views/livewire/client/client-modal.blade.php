@@ -1,13 +1,13 @@
 <div class="p-6">
     <section wire:submit.prevent="save" class="p-6">
-        <header>
-            @if(!isset($client_id) or $client_id === '' )
+	<header>
+            @if(!($client_id === ''))
                 <h2 class="text-lg font-medium text-gray-900">Editar Cliente</h2>
             @else
                 <h2 class="text-lg font-medium text-gray-900">Cadastrar Cliente</h2>
             @endif
-            {{--<h2 class="text-lg font-medium text-gray-900">Cadastrar Cliente</h2>--}}
         </header>
+
         <div class="mt-6 border-t pt-3 space-y-6">
             <div class="flex gap-4">
                 <div class="w-[75%]">
