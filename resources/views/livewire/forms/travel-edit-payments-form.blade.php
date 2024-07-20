@@ -2,7 +2,7 @@
 <div>
     <form wire:submit.prevent="save" class="p-6">
         <header>
-            <h2 class="text-lg font-medium text-gray-900">Novo Pagamento</h2>
+            <h2 class="text-lg font-medium text-gray-900">Atualizar Pagamentos</h2>
         </header>
         <div class="mt-4 space-y-6">
             <fieldset class="border border-dashed border-gray-300 p-4">
