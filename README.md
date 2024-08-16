@@ -3,6 +3,15 @@ Sistema de Gerenciamento de Operações para um agente de viagens.
 
 ![Capturar](https://github.com/user-attachments/assets/16c45ade-c023-4c68-9e14-602e67c606f2)
 
+## Tecnologias Utilizadas
+
+- [x] Livewire 3
+- [x] Laravel 10
+- [x] PHP 8.1
+- [x] Docker
+- [x] Digital Ocean - Droplets[VM para hospedagem]
+- [x] PHP Storm
+
 ## Instalação do projeto
 
 Clone o projeto
