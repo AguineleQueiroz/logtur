@@ -8,6 +8,7 @@ Sistema de Gerenciamento de Operações para um agente de viagens.
 - [x] Livewire 3
 - [x] Laravel 10
 - [x] PHP 8.1
+- [x] MySQL
 - [x] Docker
 - [x] Digital Ocean - Droplets[VM para hospedagem]
 - [x] PHP Storm
