@@ -43,7 +43,7 @@
                                         <tr wire:key="'{{$list->id}}'" class="border-b border-gray-300 px-6">
                                             <td class="px-6 py-3 w-auto">{{str_replace('_',' ', $list->name)}}</td>
                                             <td class="px-6 py-3 w-auto">{!! $list->size < 1 ? 'Nenhum viajante nesta lista' : $list->size.' viajantes' !!}</td>
-                                            <td class="px-6 py-3 w-auto">{{\App\Util\GeneralHelper::formatDate($list->created_at)}}</td>
+                                            <td class="px-6 py-3 w-auto">{{\App\Util\GeneralHelper::formatDate($list->updated_at)}}</td>
                                             <td class="px-6 py-3 flex items-center justify-end" >
                                                 {{--edit list--}}
                                                 <x-generic-button

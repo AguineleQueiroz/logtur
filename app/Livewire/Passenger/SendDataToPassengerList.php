@@ -87,6 +87,7 @@ class SendDataToPassengerList extends Component
      */
     public function save(): void {
         $selectedList = $this->list_id ? PassengersList::find($this->list_id) : null;
+        $travel = Travel::where('passengers_list_id', $this->list_id);
         if (!$selectedList) {
             ClientList::dispatchNotification(title: 'Selecione uma lista para adicionar os passageiros selecionados.', color: 'white');
         }elseif (session()->exists('selected_clients')) {
@@ -117,7 +118,7 @@ class SendDataToPassengerList extends Component
 
             /*convert final list in json format and update data on db*/
             $resultAction = $selectedList->update(['list' => json_encode($passenger_list_db), 'size' => $size]);
-
+            $travel->update(['occupied_vacancies' => $size]);
             if($resultAction) {
                 TravelPaymentDetails::addOnPaymentList();
                 ClientList::dispatchNotification($resultAction, title: 'Lista preenchida com sucesso.', color: 'white');

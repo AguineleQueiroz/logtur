@@ -18,7 +18,15 @@ class Helper
         }
         return null;
     }
-    public static function convertDate($date) {
-        return Carbon::parse($date)->format("d \\d\\e M");
+    public static function convertDate($date): string
+    {
+        Carbon::setLocale('pt_BR');
+        return Carbon::parse($date)->translatedFormat("d \\d\\e M");
+    }
+
+    public static function getMonthAndYear($date): string
+    {
+        Carbon::setLocale('pt_BR');
+        return ucfirst(Carbon::parse($date)->translatedFormat("M/Y"));
     }
 }
