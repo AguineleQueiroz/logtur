@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Travel;
 
+use App\Livewire\Client\ClientList;
 use App\Models\PaymentList;
 use App\Models\Travel;
 use Illuminate\Http\Request;
@@ -45,14 +46,19 @@ class TravelPaymentDetails extends Component
         $travel_id = session('travel_id');
         $passenger_list_id = session('passenger_list_id');
         foreach ($data as $passenger) {
-            PaymentList::create([
-                'user_id' => $passenger['user_id'],
-                'passenger_id' => $passenger['id'],
-                'passenger_list_id' => $passenger_list_id,
-                'travel_id' => $travel_id,
-                'name' => $passenger['name'],
-                'phone' => $passenger['phone']
-            ]);
+            $exists = PaymentList::where('passenger_id', $passenger['id']) ?? null;
+            if(!$exists) {
+                PaymentList::create([
+                    'user_id' => $passenger['user_id'],
+                    'passenger_id' => $passenger['id'],
+                    'passenger_list_id' => $passenger_list_id,
+                    'travel_id' => $travel_id,
+                    'name' => $passenger['name'],
+                    'phone' => $passenger['phone']
+                ]);
+                ClientList::dispatchNotification($resultAction, title: 'Lista preenchida com sucesso.', color: 'white');
+            }
+            ClientList::dispatchNotification(false, title: 'Não foi possível adicionar, pois o viajante já está na lista.', color: 'white');
         }
     }
 
