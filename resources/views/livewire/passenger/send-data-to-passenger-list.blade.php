@@ -8,10 +8,15 @@
                                     bg-gray-50 focus:ring-blue-500 focus:border-blue-500 mt-1"
                         id="grid-state">
                     {{--default value--}}
-                    <option value="" disabled>Selecionar lista</option>
+                    <option value="" disabled>
+                        Selecionar lista
+                    </option>
                     {{--dynamic options--}}
                     @foreach($lists as $list)
-                        <option value="{{$list->id}}">{{ ucwords(str_replace('_',' ', $list->name)) }}</option>
+                        <option value="{{$list->id}}">
+                            {{ ucwords(str_replace('_',' ', $list->name)) }} -
+                            {{ Helper::getMonthAndYear($list->created_at)}}
+                        </option>
                     @endforeach
                 </select>
             </div>

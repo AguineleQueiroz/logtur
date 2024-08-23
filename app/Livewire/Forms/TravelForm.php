@@ -92,8 +92,8 @@ class TravelForm extends Form
                 'price' => 'required|numeric',
                 'available_vacancies' => 'required|min:1|numeric',
                 'occupied_vacancies' => 'required|min:0|numeric',
-                'departure' => 'required|date|after_or_equal:today',
-                'arrival' => 'required|date|after_or_equal:departure',
+                'departure' => 'required|date',
+                'arrival' => 'required|date',
             ]);
             $resultAction = $this->travel->update(
                 $this->only(['user_id', 'destiny', 'status', 'price', 'departure', 'arrival', 'available_vacancies', 'occupied_vacancies'])

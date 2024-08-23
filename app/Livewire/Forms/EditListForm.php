@@ -4,6 +4,7 @@ namespace App\Livewire\Forms;
 
 use App\Livewire\Client\ClientList;
 use App\Models\PassengersList;
+use App\Models\Travel;
 use App\Models\User;
 use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Rule;
@@ -36,7 +37,8 @@ class EditListForm extends Form
         ]);
         $resultAction = $this->list->update(['name' => $this->name]);
         $resultAction ? ClientList::dispatchNotification(title: 'Nome da lista atualizado.', color: 'white') : ClientList::dispatchNotification(false, color: 'white');
-
+        $travel = Travel::where('passengers_list_id', $this->list->id);
+        $travel->update(['destiny' => ucwords(str_replace('_',' ', $this->name))]);
         $this->reset();
     }
 

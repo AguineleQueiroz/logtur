@@ -43,7 +43,7 @@
                 <div class="w-[40%]">
                     <x-input-label for="occupied_vacancies" :value="__('Vagas Ocupadas')"/>
                     <x-text-input wire:model="form.occupied_vacancies" id="occupied_vacancies" name="occupied_vacancies"
-                                  type="number" min="0" class="mt-1 block w-full" placeholder="{{ __('0') }}"/>
+                                  type="number" min="0" class="mt-1 block w-full" placeholder="{{ __('0') }}" readonly/>
                 </div>
                 <div class="w-full">
                     <x-input-label for="status" :value="__('Status')" />
