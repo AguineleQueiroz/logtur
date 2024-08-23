@@ -1,24 +1,35 @@
-# Base backend with Laravel 10.x, Docker and php 8.1
+# LeiaTur - Sistema de Gerenciamento
+Sistema de Gerenciamento de Operações para um agente de viagens. 
 
-## Passo a passo para rodar o projeto
+![Capturar](https://github.com/user-attachments/assets/16c45ade-c023-4c68-9e14-602e67c606f2)
+
+## Tecnologias Utilizadas
+
+- [x] Livewire 3
+- [x] Laravel 10
+- [x] PHP 8.1
+- [x] MySQL
+- [x] Docker
+- [x] Digital Ocean - Droplets[VM para hospedagem]
+- [x] PHP Storm
+
+## Instalação do projeto
+
 Clone o projeto
 ```sh
-git clone https://github.com/AguineleQueiroz/basebackend.git baseapp
+git clone https://github.com/AguineleQueiroz/leiatur.git
 ```
+Acesse a pasta do projeto executando o seguinte comando:
 ```sh
-cd baseapp
+cd leiatur
 ```
-
-
-Crie o Arquivo .env
+Crie o arquivo com as variáveis de ambiente:
 ```sh
 cp .env.example .env
 ```
-
-
-Atualize essas variáveis de ambiente no arquivo .env
-```dosini
-APP_NAME="Backend"
+Atualize as variáveis de ambiente listadas abaixo:
+```
+APP_NAME="LeiaTur"
 APP_URL=http://localhost:8080
 
 DB_CONNECTION=mysql
@@ -36,31 +47,27 @@ REDIS_HOST=redis
 REDIS_PASSWORD=null
 REDIS_PORT=6379
 ```
-
-
-Suba os containers do projeto
+Execute o comandos abaixo para criar os containers do projeto:
 ```sh
 docker-compose up -d
 ```
-
-
-Acesse o container
+Acesse o container da aplicação:
 ```sh
 docker-compose exec backend bash
 ```
-
-
-Instale as dependências do projeto
+Instale as dependências do projeto rodando:
 ```sh
 composer install
 ```
-
-
-Gere a key do projeto Laravel
+Rode as migrations do projeto:
+```
+php artisan migrate
+```
+Gere a key do projeto LeiaTur:
 ```sh
 php artisan key:generate
 ```
 
 
-Acesse o projeto
-[http://localhost:8080](http://localhost:8080)
+Agora você já pode acessar a aplicação através da url abaixo:
+[http://localhost](http://localhost)
