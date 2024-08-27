@@ -59,7 +59,7 @@
                                                 <th scope="col" class="px-4 py-3">Saída</th>
                                                 <th scope="col" class="px-4 py-3">Chegada</th>
                                                 <th scope="col" class="px-4 py-3">Número de Vagas</th>
-                                                <th scope="col" class="px-4 py-3">Vagas Disponíveis</th>
+                                                <th scope="col" class="px-4 py-3">Vagas Ocupadas</th>
                                                 <th scope="col" class="px-4 py-3">Valor</th>
                                                 <th scope="col" class="px-4 py-3">Status</th>
                                                 <th scope="col" class="px-4 py-3">
