@@ -3,6 +3,7 @@
 namespace App\Livewire\Travel;
 
 use App\Livewire\Client\ClientList;
+use App\Models\Client;
 use App\Models\PaymentList;
 use App\Models\Travel;
 use Illuminate\Http\Request;
@@ -45,11 +46,10 @@ class TravelPaymentDetails extends Component
         $data = session('restrict_data_passengers');
         $travel_id = session('travel_id');
         $passenger_list_id = session('passenger_list_id');
+        $resultAction = false;
         foreach ($data as $passenger) {
             $exists = PaymentList::where('passenger_id', $passenger['id'])->first() ?? null;
-            if($exists) {
-                ClientList::dispatchNotification(false, title: 'Não foi possível adicionar, pois o viajante já está na lista.', color: 'white');
-            }else{
+            if(!$exists) {
                 $resultAction = PaymentList::create([
                     'user_id' => $passenger['user_id'],
                     'passenger_id' => $passenger['id'],
@@ -58,8 +58,14 @@ class TravelPaymentDetails extends Component
                     'name' => $passenger['name'],
                     'phone' => $passenger['phone']
                 ]);
-                ClientList::dispatchNotification($resultAction, title: 'Lista preenchida com sucesso.', color: 'white');
+                $client = Client::getClient($passenger['id']);
+                $client->update(['passengers_list_id' => $passenger_list_id]);
             }
+        }
+        if($resultAction) {
+            ClientList::dispatchNotification($resultAction, title: 'Lista preenchida com sucesso.', color: 'white');
+        }else {
+            ClientList::dispatchNotification(false, title: 'Não foi possível adicionar, pois o viajante já está na lista.', color: 'white');
         }
     }
 
@@ -72,6 +78,7 @@ class TravelPaymentDetails extends Component
      */
     public static function refresh(string $payment_list_details): void {
         $list = json_decode($payment_list_details, true);
+        session()->forget('selected_clients');
         redirect('/travel/payment-details?travel='.$list['travel_id'], true);
     }
 

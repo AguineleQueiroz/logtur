@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Client\Confirm;
 
+use App\Helpers\Helper;
 use App\Livewire\Client\ClientList;
 use App\Models\Client;
 use Illuminate\Contracts\View\View;
@@ -24,8 +25,12 @@ class ClientConfirmDeletion extends ModalComponent
      */
     public function delete(): void
     {
+        $client = Client::getClient($this->client_id);
+        $list_id = $client->passengers_list_id;
+        $resultClearRelationsAction = Helper::removePerson($list_id, $this->client_id);
         $resultAction = Client::find($this->client_id)->delete();
-        if ($resultAction) {
+
+        if ($resultClearRelationsAction and $resultAction) {
             ClientList::dispatchNotification(
                 $resultAction,
                 'Cliente excluído',
@@ -38,6 +43,7 @@ class ClientConfirmDeletion extends ModalComponent
                 'white'
             );
         }
+
         $this->closeModal();
         ClientList::refresh();
     }

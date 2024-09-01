@@ -38,12 +38,19 @@ class Travel extends Model
         return (new Travel)->belongsTo(User::class);
     }
 
-
     /**
      * @return mixed
      */
     public static function getListByUserId(): mixed
     {
         return self::where('user_id', Auth::user()->id)->get();
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function getTravelByListId($id): mixed
+    {
+        return self::where('passengers_list_id', $id)->first();
     }
 }

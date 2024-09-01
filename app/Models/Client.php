@@ -20,7 +20,8 @@ class Client extends Model
         'age',
         'address',
         'city',
-        'phone'
+        'phone',
+        'passengers_list_id'
     ];
 
     public function scopeSearch($query, $value) {
@@ -43,6 +44,10 @@ class Client extends Model
      */
     public static function getClient($id) {
         return Client::where('id', $id)->first();
+    }
+
+    public static function getUserByListId($id) {
+        return self::where('passengers_list_id', $id)->get();
     }
 
     /**

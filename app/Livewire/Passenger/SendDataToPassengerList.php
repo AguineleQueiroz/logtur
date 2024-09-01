@@ -117,7 +117,7 @@ class SendDataToPassengerList extends Component
             $passenger_list_db = self::sortByName($passenger_list_db);
 
             /*convert final list in json format and update data on db*/
-            $resultAction = $selectedList->update(['list' => json_encode($passenger_list_db), 'size' => $size]);
+            $selectedList->update(['list' => json_encode($passenger_list_db), 'size' => $size]);
             $travel->update(['occupied_vacancies' => $size]);
             TravelPaymentDetails::addOnPaymentList();
 
