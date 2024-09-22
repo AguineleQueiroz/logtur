@@ -30,7 +30,7 @@ cp .env.example .env
 Atualize as variáveis de ambiente listadas abaixo:
 ```
 APP_NAME="LeiaTur"
-APP_URL=http://localhost:8080
+APP_URL=http://localhost
 
 DB_CONNECTION=mysql
 DB_HOST=mysql
