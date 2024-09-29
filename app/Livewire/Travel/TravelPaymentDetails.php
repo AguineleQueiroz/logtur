@@ -48,7 +48,8 @@ class TravelPaymentDetails extends Component
         $passenger_list_id = session('passenger_list_id');
         $resultAction = false;
         foreach ($data as $passenger) {
-            $exists = PaymentList::where('passenger_id', $passenger['id'])->first() ?? null;
+            $exists = PaymentList::where('passenger_list_id', $passenger_list_id)
+                ->where('passenger_id', $passenger['id'])->first() ?? null;
             if(!$exists) {
                 $resultAction = PaymentList::create([
                     'user_id' => $passenger['user_id'],
