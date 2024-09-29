@@ -90,7 +90,9 @@ class SendDataToPassengerList extends Component
         $travel = Travel::where('passengers_list_id', $this->list_id);
         if (!$selectedList) {
             ClientList::dispatchNotification(title: 'Selecione uma lista para adicionar os passageiros selecionados.', color: 'white');
-        }elseif (session()->exists('selected_clients')) {
+        }
+
+        if (session()->exists('selected_clients')) {
             $clients_selected = session('selected_clients');
             /*list: format array*/
             $passenger_list_db = json_decode($selectedList->list, true);

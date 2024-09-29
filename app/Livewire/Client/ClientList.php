@@ -38,6 +38,15 @@ class ClientList extends Component
     }
 
     /**
+     * Clear selected clients from session
+     *
+     * @return void
+     */
+    public function clearSession(): void {
+        session()->forget('selected_clients');
+    }
+
+    /**
      * Dispatch events messages after actions in the system
      *
      * @param $resultAction
