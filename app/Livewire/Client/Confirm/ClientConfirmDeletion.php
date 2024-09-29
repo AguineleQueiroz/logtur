@@ -27,8 +27,9 @@ class ClientConfirmDeletion extends ModalComponent
     {
         $client = Client::getClient($this->client_id);
         $resultAction = Client::find($this->client_id)->delete();
+
         if ($resultAction) {
-            $list_id = $client->passengers_list_id;
+            $list_id = $client->passengers_list_id ?? null;
             if($list_id) Helper::removePerson($list_id, $this->client_id);
             ClientList::dispatchNotification(
                 $resultAction,
