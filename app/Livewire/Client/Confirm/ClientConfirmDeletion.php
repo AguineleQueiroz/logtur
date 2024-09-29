@@ -26,11 +26,10 @@ class ClientConfirmDeletion extends ModalComponent
     public function delete(): void
     {
         $client = Client::getClient($this->client_id);
-        $list_id = $client->passengers_list_id;
-        $resultClearRelationsAction = Helper::removePerson($list_id, $this->client_id);
         $resultAction = Client::find($this->client_id)->delete();
-
-        if ($resultClearRelationsAction and $resultAction) {
+        if ($resultAction) {
+            $list_id = $client->passengers_list_id;
+            if($list_id) Helper::removePerson($list_id, $this->client_id);
             ClientList::dispatchNotification(
                 $resultAction,
                 'Cliente excluído',
