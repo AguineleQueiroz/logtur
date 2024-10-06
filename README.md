@@ -1,5 +1,5 @@
-# LeiaTur - Sistema de Gerenciamento
-Sistema de Gerenciamento de Operações para um agente de viagens. 
+# LogTur - Sistema de Gerenciamento
+Sistema de Gerenciamento de Operações para agentes de viagens. 
 
 ![Capturar](https://github.com/user-attachments/assets/16c45ade-c023-4c68-9e14-602e67c606f2)
 
