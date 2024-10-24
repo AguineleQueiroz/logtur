@@ -31,7 +31,12 @@ class ClientForm extends Form
             'user_id' => 'required',
             'name' => 'required|min:3|string|max:255',
             'email' => 'nullable|min:3|string|max:255',
-            'identity' => 'required|unique:clients,identity|min:8|max:10|string',
+            'identity' => [
+                'required',
+                'unique:clients,identity',
+                'string',
+                'regex:/^\d{8}$|^\d{11}$|^\d{32}$/' // RG ou CPF ou Registro de nascimento
+            ],
             'age' => 'required|date|before:today',
             'city' => 'required|min:3|max:45|string',
             'address' => 'required|min:5|max:255|string',
@@ -56,7 +61,12 @@ class ClientForm extends Form
                 'user_id' => 'required',
                 'name' => 'required|min:3|string|max:255',
                 'email' => 'nullable|min:3|string|max:255',
-                'identity' => 'required|min:8|max:10|string',
+                'identity' => [
+                    'required',
+                    'unique:clients,identity',
+                    'string',
+                    'regex:/^\d{8}$|^\d{11}$|^\d{32}$/' // RG ou CPF ou Registro de nascimento
+                ],
                 'age' => 'required|date|before:today',
                 'city' => 'required|min:3|max:45|string',
                 'address' => 'required|min:5|max:255|string',

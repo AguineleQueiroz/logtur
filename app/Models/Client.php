@@ -24,14 +24,16 @@ class Client extends Model
         'passengers_list_id'
     ];
 
-    public function scopeSearch($query, $value) {
+    public function scopeSearch($query, $value): void
+    {
         $query->where('name', 'like', "%{$value}%")
             ->orWhere('email', 'like', "%{$value}%")
             ->orWhere('address', 'like', "%{$value}%")
             ->orWhere('city', 'like', "%{$value}%");
     }
 
-    public static function validateIdentity($attribute, $value, $fail) {
+    public static function validateIdentity($attribute, $value, $fail): void
+    {
         $numeric_value = preg_replace('/[^0-9]/', '', $value);
         if (count(array_unique(str_split($numeric_value))) === 1) {
             $fail($attribute.' invalid.');
