@@ -60,7 +60,7 @@
                                             <tr>
                                                 <th scope="col" class="px-4 py-3"></th>
                                                 <th scope="col" class="px-4 py-3">Nome</th>
-                                                <th scope="col" class="px-4 py-3">Identidade</th>
+                                                <th scope="col" class="px-4 py-3">Documento</th>
                                                 <th scope="col" class="px-4 py-3">Idade</th>
                                                 <th scope="col" class="px-4 py-3">Cidade</th>
                                                 <th scope="col" class="px-4 py-3">Endereço</th>
@@ -82,7 +82,7 @@
                                                         />
                                                     </td>
                                                     <td class="px-4 py-3 whitespace-nowrap">{{$client->name}}</td>
-                                                    <td class="px-4 py-3">{{$client->identity}}</td>
+                                                    <td class="px-4 py-3">{{$client->document}}</td>
                                                     <td class="px-4 py-3 ">{{\App\Util\GeneralHelper::calculateAge($client->age)}}</td>
                                                     <td class="px-4 py-3 whitespace-nowrap">{{$client->city}}</td>
                                                     <td class="px-4 py-3 w-96">{{$client->address}}</td>

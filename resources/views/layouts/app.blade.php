@@ -37,5 +37,16 @@
 
     </div>
     @filamentScripts
+    <script>
+        function applyDinamicMask(input) {
+            if(input.length < 11) {
+                return '99.999.999';
+            }else if(input.length < 15) {
+                return '999.999.999-99';
+            }else{
+                return '999999 99 99 9999 9 99999 999 9999999 99';
+            }
+        }
+    </script>
 </body>
 </html>

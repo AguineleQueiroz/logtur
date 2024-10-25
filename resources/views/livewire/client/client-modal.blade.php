@@ -16,12 +16,6 @@
                                   placeholder="{{ __('Nome') }}"/>
                     <x-input-error :messages="$errors->get('form.name')" class="mt-2" />
                 </div>
-{{--                <div>--}}
-{{--                    <x-input-label for="age" :value="__('Idade')"/>--}}
-{{--                    <x-text-input wire:model="form.age" id="age" name="age" type="number" class="mt-1 block w-full"--}}
-{{--                                  placeholder="{{ __('Idade') }}"/>--}}
-{{--                    <x-input-error :messages="$errors->get('form.age')" class="mt-2" />--}}
-{{--                </div>--}}
                 <div>
                     <x-input-label for="age" :value="__('Data de Nascimento')"/>
                     <x-text-input wire:model="form.age" id="departure" name="age" type="date" class="mt-1 block w-full"
@@ -36,10 +30,10 @@
             </div>
             <div class="flex gap-4">
                 <div class="w-full">
-                    <x-input-label for="identity" :value="__('Identidade')"/>
-                    <x-text-input wire:model="form.identity" id="identity" name="identity" type="text" class="mt-1 block w-full"
-                                  placeholder="{{ __('identity') }}"/>
-                    <x-input-error :messages="$errors->get('form.identity')" class="mt-2" />
+                    <x-input-label for="document" :value="__('Documento')"/>
+                    <x-text-input wire:model="form.document" id="document" name="document" type="text" class="mt-1 block w-full"
+                                  placeholder="{{ __('document') }}"/>
+                    <x-input-error :messages="$errors->get('form.document')" class="mt-2" />
                 </div>
                 <div class="w-full">
                     <x-input-label for="city" :value="__('Cidade')"/>

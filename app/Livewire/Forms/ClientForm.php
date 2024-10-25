@@ -15,7 +15,7 @@ class ClientForm extends Form
     public string $user_id = '';
     public string $name = '';
     public string $email = '';
-    public string $identity = '';
+    public string $document = '';
     public string $age = '';
     public string $city = '';
     public string $address = '';
@@ -31,11 +31,11 @@ class ClientForm extends Form
             'user_id' => 'required',
             'name' => 'required|min:3|string|max:255',
             'email' => 'nullable|min:3|string|max:255',
-            'identity' => [
+            'document' => [
                 'required',
-                'unique:clients,identity',
+                'unique:clients,document',
                 'string',
-                'regex:/^\d{8}$|^\d{11}$|^\d{32}$/' // RG ou CPF ou Registro de nascimento
+                'regex:/^.{10}$|^.{14}$|^.{40}$/' // RG ou CPF ou Registro de nascimento
             ],
             'age' => 'required|date|before:today',
             'city' => 'required|min:3|max:45|string',
@@ -53,7 +53,7 @@ class ClientForm extends Form
         $this->user_id = User::getOwner();
         if(empty($this->client)) {
             $this->validate();
-            $resultAction = Client::create($this->only(['user_id', 'name', 'email', 'identity', 'age', 'city', 'address', 'phone']));
+            $resultAction = Client::create($this->only(['user_id', 'name', 'email', 'document', 'age', 'city', 'address', 'phone']));
             ClientList::dispatchNotification($resultAction, color: 'white');
 
         }else{
@@ -61,18 +61,18 @@ class ClientForm extends Form
                 'user_id' => 'required',
                 'name' => 'required|min:3|string|max:255',
                 'email' => 'nullable|min:3|string|max:255',
-                'identity' => [
+                'document' => [
                     'required',
-                    'unique:clients,identity',
+                    'unique:clients,document',
                     'string',
-                    'regex:/^\d{8}$|^\d{11}$|^\d{32}$/' // RG ou CPF ou Registro de nascimento
+                    'regex:/^.{10}$|^.{14}$|^.{40}$/' // RG ou CPF ou Registro de nascimento
                 ],
                 'age' => 'required|date|before:today',
                 'city' => 'required|min:3|max:45|string',
                 'address' => 'required|min:5|max:255|string',
                 'phone' => 'required|min:11|max:16|string',
             ]);
-            $resultAction = $this->client->update($this->only(['user_id', 'name', 'email', 'identity', 'age', 'city', 'address', 'phone']));
+            $resultAction = $this->client->update($this->only(['user_id', 'name', 'email', 'document', 'age', 'city', 'address', 'phone']));
             $resultAction ? ClientList::dispatchNotification(color: 'white') : ClientList::dispatchNotification(false, color: 'white');
         }
         $this->reset();
@@ -90,7 +90,7 @@ class ClientForm extends Form
         $this->name = $client->name;
         $this->email = $client->email ?? '';
         $this->age = $client->age;
-        $this->identity = $client->identity;
+        $this->document = $client->document;
         $this->city = $client->city;
         $this->address = $client->address;
         $this->phone = $client->phone;
