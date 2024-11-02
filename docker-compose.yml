@@ -1,6 +1,7 @@
 services:
     # image project
     backend:
+        container_name: logtur_backend
         build:
             context: .
             dockerfile: Dockerfile
@@ -16,6 +17,7 @@ services:
     # nginx
     nginx:
         image: nginx:alpine
+        container_name: logtur_nginx
         restart: unless-stopped
         ports:
             - "80:80"
@@ -28,6 +30,7 @@ services:
     # db mysql
     mysql:
         image: mysql:5.7.22
+        container_name: logtur_bd
         platform: linux/x86_64
         restart: unless-stopped
         environment:
@@ -45,6 +48,11 @@ services:
     # redis
     redis:
         image: redis:latest
+        container_name: logtur_redis
+        ports:
+            - "6379:6379"
+        volumes:
+            - "./redis:/data"
         networks:
             - laravel
 

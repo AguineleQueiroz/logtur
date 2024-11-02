@@ -6,6 +6,7 @@ use App\Models\Client;
 use App\Models\User;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
 use JetBrains\PhpStorm\NoReturn;
 use Livewire\Component;
@@ -22,9 +23,13 @@ class ClientList extends Component
      */
     public function render(): View
     {
-        /*$clients = User::find(Auth::id())->clients;*/
+        $cache_key = "clients:".Auth::id().":".$this->search.":".$this->perPage;
+        $clients = Cache::remember($cache_key, 3600, function () {
+            return Client::where('user_id', Auth::id())->Search($this->search)->paginate($this->perPage);
+        });
+
         return view('livewire.client.client-list', [
-            'clients' => Client::where('user_id', Auth::id())->Search($this->search)->paginate($this->perPage)
+            'clients' => $clients
         ]);
     }
 

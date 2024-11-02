@@ -62,8 +62,6 @@ class ClientForm extends Form
                 'name' => 'required|min:3|string|max:255',
                 'email' => 'nullable|min:3|string|max:255',
                 'document' => [
-                    'required',
-                    'unique:clients,document',
                     'string',
                     'regex:/^.{10}$|^.{14}$|^.{40}$/' // RG ou CPF ou Registro de nascimento
                 ],
