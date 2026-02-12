@@ -21,7 +21,7 @@ git clone https://github.com/AguineleQueiroz/leiatur.git
 ```
 Acesse a pasta do projeto executando o seguinte comando:
 ```sh
-cd leiatur
+cd logtur
 ```
 Crie o arquivo com as variáveis de ambiente:
 ```sh
@@ -29,7 +29,7 @@ cp .env.example .env
 ```
 Atualize as variáveis de ambiente listadas abaixo:
 ```
-APP_NAME="LeiaTur"
+APP_NAME="LogTur"
 APP_URL=http://localhost
 
 DB_CONNECTION=mysql
